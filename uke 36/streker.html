@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>streker</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #minCanvas{
+        background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="minCanvas" width="200" height="100"></canvas>
+
+    <script>
+
+        var minCanvas = document.getElementById("minCanvas");
+        var ctx = minCanvas.getContext("2d");
+
+        var bredde = innerWidth; //bredden på skjermen
+        var hoide = innerHeight; //høyden på skjermen
+
+        minCanvas.width = bredde;
+        minCanvas.height = hoide;
+
+        function tegnStrek() {
+            var farge = `hsla(${Math.random()*360},100%,50%,0.4)`;
+            var x = Math.random()*bredde;
+            var y = Math.random() * hoide;
+
+            ctx.beginPath();
+
+                ctx.moveTo(bredde/2, hoide/2); //midten på skjermen
+                ctx.strokeStyle = farge;
+                ctx.lineTo(x, y);
+                ctx.stroke();
+
+            ctx.closePath();
+        }
+
+        setInterval(tegnStrek, 10);
+
+    </script>
+</body>
+</html>

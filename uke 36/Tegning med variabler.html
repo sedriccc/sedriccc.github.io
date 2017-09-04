@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>variabel tegning</title>
+    <style>
+        #minCanvas{background-color: lightgreen}
+    </style>
+</head>
+<body>
+    <canvas id="minCanvas" width="600" height="400"></canvas>
+
+    <script>
+
+        let minCanvas = document.getElementById("minCanvas");
+        let ctx = minCanvas.getContext("2d");
+
+        function draw() {
+
+            let x = Math.random() * 600;
+            let y = Math.random() * 400;
+
+            //tegner hodet
+            ctx.fillStyle = `hsl(${Math.random()*360}, 100%, 50%)`;
+            ctx.fillRect(x, y, 50, 50);
+            //tegner øyner
+            ctx.fillStyle = "blue";
+            ctx.fillRect(x + 10, y + 10, 5, 5);
+            ctx.fillRect(x + 35, y + 10, 5, 5);
+            //tegner munnen
+            ctx.fillRect(x + 10, y + 30, 30, 5);
+        }
+
+        setInterval(draw, 10);
+
+
+
+
+
+    </script>
+</body>
+</html>

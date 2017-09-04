@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>variabler</title>
+    <style>
+
+        body {
+            display: grid;
+            grid-template-columns: repeat(50, 1fr);
+            background-color: black;
+        }
+        div {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+
+    var x = 0;
+    var tekst = `Gordon G. Chang er derfor mindre imponert over at Trump retter pekefingeren mot USA-allierte Sør-Korea og landets nye president Moon Jae-in.
+
+– Sør-Korea oppdager nå, slik jeg har fortalt dem, at deres snakk om forsoning med Nord-Korea ikke vil fungere. De forstår bare én ting, skrev Trump på twitter søndag.
+
+– Selv om det helt sikkert er mye å klage på fra USAs perspektiv når det gjelder handelsavtaler med Sør-Korea, var ikke dette tiden for å snakke om det. Å trekke seg fra frihandelsavtalen med Sør-Korea nå er det absolutt verste tidspunkt. USA trenger alle sine allierte for å konfrontere Nord-Korea, sier Chang til VG.
+
+USAs finansminister Steven Mnuchin bekreftet til Fox News at USA ser på frihandelsavtalen med Sør-Korea.
+
+– Å trekke seg handelsavtaler er et dårlig trekk. Og akkurat nå er det spesielt alvorlig, med tanke på hva Sør-Korea står overfor, advarer den republikanske senatoren Jeff Flake til CNN.
+
+Gordon Chang, som har skrevet boken «Nuclear Showdown: North-Korea Takes On The World», mener det ikke er tilfeldig at Nord-Koreas mest alvorlige prøvesprengning kommer akkurat nå.
+
+Han mener Donald Trump er en svekket amerikansk president.
+
+– Det er stor uenighet i det republikanske partiet om Trump er rett mann - og han er historisk upopulær på alle meningsmålinger. Det er mulig at Kim Jong-un tenker at han derfor kan slippe unna med dette. Men da har han nok feilkalkulert den amerikanske ånden, sier Chang.
+
+Som et svar til Kim Jong-uns prøvesprengning, utførte Sør-Korea natt til mandag en missiløvelse i Kinahavet. Flere ballistiske missiler traff utpekte mål, opplyser ledere i det sørkoreanske militæret til nyhetsbyrået Yonhap.
+
+FNs sikkerhetsråd møtes mandag for å diskutere krisen.`;
+
+
+
+
+    function skriv() {
+
+        //lager et div element med en bokstav
+        var div = document.createElement("div");
+        div.innerHTML = tekst[x];
+        //legger div element inn i body
+        document.body.appendChild(div);
+
+        //øke x med 1
+        //x = x + 1
+        //x+=1;
+        x++;
+
+        //document.write(tekst[x]);
+
+
+    }
+
+    setInterval(skriv, 100);
+
+</script>
+
+
+</body>
+</html>
