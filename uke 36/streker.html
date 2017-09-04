@@ -42,7 +42,7 @@
 
             ctx.closePath();
 
-            minCanvas.style.transform = `scale(${x/1000})`;
+            minCanvas.style.transform = `rotate(${Math.random()*360}deg) scale(${x/1000})`;
         }
 
         setInterval(tegnStrek, 10);
