@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kæks</title>
+</head>
+<body>
+
+    <img id="fuglebilde" height="400px" width="400px">
+    <img id="terningkast" height="400px" width="400px">
+
+<script>
+
+    var terning1 = Math.ceil(Math.random()*3);
+
+    var terning2 = Math.ceil(Math.random()*6);
+
+    var tall1 = prompt("velg et tall");
+    var tall2 = prompt("velg et til tall");
+    var regneart = prompt("velg en regneart");
+    var sum = Number(tall1) - Number(tall2);
+    var sum2 = Number(tall1) + Number(tall2);
+    var sum3 = Number(tall1) / Number(tall2);
+    var sum4 = Number(tall1) * Number(tall2);
+
+
+    if (terning1 === 1) {
+        fuglebilde.src = "fugl1.jpg";
+    } else if (terning1 === 2){
+        fuglebilde.src = "fugl2.jpg";
+    } else if (terning1 === 3) {
+        fuglebilde.src = "fugl3.jpg";
+    }
+
+    if (terning2 === 1) {
+        terningkast.src = "terning 1.jpg";
+    } else if (terning2 === 2) {
+        terningkast.src = "terning 2.png";
+    } else if (terning2 === 3) {
+        terningkast.src = "terningkast-3.jpg";
+    } else if (terning2 === 4) {
+        terningkast.src = "terning4.jpg";
+    } else if (terning2 === 5) {
+        terningkast.src = "terning 5.png";
+    } else if (terning2 === 6) {
+        terningkast.src = "terningkast-6.jpg";
+    }
+
+    document.write("<br>");
+    document.write(`Du fikk terningkast ${terning2}`);
+    document.write("<br>");
+
+    if (regneart === "-") {
+        document.write(`${sum}`);
+    } else if (regneart === "+") {
+        document.write(`${sum2}`);
+    }else if (regneart === "/") {
+        document.write(`${sum3}`);
+    }else if (regneart === "*") {
+        document.write(`${sum4}`);
+    }
+
+</script>
+
+</body>
+</html>

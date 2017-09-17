@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>logg inn</title>
+</head>
+<body>
+
+    <input type="text" id="username">
+    <input type="password" id="password">
+    <h1 id="info"></h1>
+    <button onclick="sjekk()">Logg inn</button>
+    <script>
+
+        var username = document.getElementById("username");
+        var password = document.getElementById("password");
+        var info = document.getElementById("info");
+
+        function sjekk() {
+            if(username.value === "jonas" && password.value === "AP") {
+                info.innerHTML = "BRA DU ER LOGGET INN";
+            } else {
+                info.innerHTML = "FEIL PASSORD ELLER BRUKERNAVN";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

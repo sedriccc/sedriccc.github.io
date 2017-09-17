@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lekse </title>
+</head>
+<body>
+
+        <img id="pokal">
+        <img id="Narr">
+        <br>
+        <img id="penger">
+        <img id="fredag">
+
+    <script>
+
+        var svar = prompt("hva er livet?");
+        var Sporreprogram = prompt("Hvem er den beste IT læreren");
+        var dato = prompt("hvilken dato vil du sjekke?");
+        var ukedag = prompt("hvilken ukedag vil du sjekke?");
+
+
+        document.write("<br>");
+
+        if(svar === "mat og sove") {
+            document.write("riktig svar");
+        }
+        else if(svar === "mat" || svar === "sove") {
+            document.write("du har delvis rett");
+        }
+        document.write("<br>");
+
+        if(Sporreprogram=== "Gløer") {
+            document.write("Du svarte riktig!");
+            pokal.src = "Pokal.jpg";
+        } else {
+            document.write("Du svarte feil!");
+            Narr.src = "Narr.jpg";
+        }
+
+        document.write("<br>");
+
+        if(dato === "13" && ukedag === "fredag") {
+            document.write("Pass på i dag er det fredag den 13");
+            fredag.src= "fredag 13..jpg";
+        } else if (ukedag === "fredag") {
+            document.write("endelig helg!")
+        } else {
+            document.write("ha en god dag!");
+            penger.src = "penger.jpg";
+        }
+        document.write("<br>");
+
+
+
+
+    </script>
+
+</body>
+</html>

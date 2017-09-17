@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prikk</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #canvas{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas" width="100" height="100"></canvas>
+
+    <script>
+
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        var x = 500;
+        var y = 40;
+        var r = 15;
+
+        var xretning = 1;
+        var yretning = 1;
+        var fart = 2;
+
+        //prikk som ikke repeteres
+        ctx.clearRect(0,0, innerWidth,innerHeight);
+
+        function tegnprikk() {
+
+            //prikk som ikke repeteres
+           // ctx.clearRect(0,0, innerWidth,innerHeight);
+
+            ctx.fillStyle = `hsla(${Math.random()*360}, 100%, 50%, 0.4)`;
+            //ctx.fillStyle = "red"
+            ctx.beginPath();
+            ctx.arc(x,y,r,0,Math.PI*2);
+            ctx.fill();
+            ctx.closePath();
+
+            x = x + xretning * fart; //økeer med en og går til høyre
+            y = y + yretning * fart;
+
+
+            if(x > innerWidth) {
+
+                xretning = -5;
+
+            }
+            if(x < 0) {
+                xretning = +1;
+            }
+            if(y < 0) {
+                yretning = 4;
+
+            }
+            if(y > innerHeight) {
+                yretning = -2;
+            }
+
+        }
+
+
+        setInterval(tegnprikk, 1);
+
+        var krymp = true;
+
+        function ny() {
+            if(krymp) {
+                r--;
+            } else {
+                r++;
+            }
+
+            if(r === 0) {
+                krymp = false
+            }
+            if(r === 50) {
+                krymp = true
+            }
+        }
+
+        setInterval(ny, 5);
+
+    </script>
+
+</body>
+</html>
