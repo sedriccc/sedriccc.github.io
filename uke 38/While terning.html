@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kaste en terning ellerno</title>
+</head>
+<body>
+
+    <script>
+        var terningsum = 0;
+        var antall = 0;
+        var i = 10;
+
+        while (terningsum < 50) {
+            terningsum = terningsum + Math.floor(Math.random()*6+1);
+            antall++;
+        }
+        document.write(`du trengte ${antall} forsøk for å komme over 50`)
+
+        while (i <= 30) {
+            i+=2;
+        }
+        document.write("<br>");
+        document.write(`${i}`);
+    </script>
+
+</body>
+</html>

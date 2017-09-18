@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lekse side 87</title>
+</head>
+<body>
+
+    <script>
+        var mobil = prompt("hvilket telefonmerke vil du se?");
+
+        switch (mobil.toLowerCase()) {
+            case "apple" :
+                document.write("du valgte feil, prøv på nytt");
+                document.body.style.backgroundColor = "red";
+                break;
+            case "samsung" :
+                document.write("bra valg");
+                document.body.style.backgroundColor = "blue";
+                break;
+            case "sony" :
+                document.write("lager de fortsatt telefoner?");
+                document.body.style.backgroundColor = "brown";
+                break;
+            case "microsoft" :
+                document.write("liker du google så godt?");
+                document.body.style.backgroundColor = "orange";
+                break;
+            default :
+                document.write("det du valgte er ikke tilgengelig");
+
+        }
+        document.write("<br>");
+
+        var rovDyr = prompt("hvilket rovdyr vil du se i dag? XD");
+
+        switch (rovDyr.toLowerCase()) {
+            case "ulv" :
+                document.write("33 ulv i Norge");
+                break;
+            case "jerv" :
+                document.write("343 jerv i Norge");
+                break;
+            case "bjorn" :
+                document.write("137 bjorn i Norge");
+                break;
+            case "gaupe" :
+                document.write("350 gaupe i Norge");
+                break;
+            default :
+                document.write("ditt dyr er ikke i databasen");
+        }
+
+            document.write("<br>");
+
+        var bilettpris = prompt("hva slags bilett skal du ha?");
+
+            switch (bilettpris.toLowerCase()) {
+                case "barn" :
+                case "pensjonist" :
+                    document.write("biletten din koster 20kr");
+                    break;
+                case "ungdom" :
+                    document.write("din bilett koster 25kr");
+                    break;
+                case "voksen" :
+                    document.write("din bilett koster hele 30kr");
+                    break;
+            }
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lækse side 90</title>
+</head>
+<body>
+
+
+    <script>
+
+        var vinner = Math.floor(Math.random()*10+1);
+
+        var antallForsøk = 1;
+        while (vinner !== 10) {
+            antallForsøk++;
+            document.write(`du vant ikke`);
+            document.write("<br>");
+            vinner = Math.floor(Math.random()*10+1);
+        }
+
+        document.write("Du brukte " + antallForsøk + " forsøk");
+
+
+    </script>
+
+</body>
+</html>

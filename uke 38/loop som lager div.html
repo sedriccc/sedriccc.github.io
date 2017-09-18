@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loop som lager div</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        div{
+            border: 1px dotted black;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+
+    var x = 1;
+    var antall = 100;
+
+    while(x < antall) {
+        var firkant = document.createElement("div");
+        firkant.style.height = x +"px";
+        document.body.appendChild(firkant);
+        x++;
+    }
+
+</script>
+
+</body>
+</html>
