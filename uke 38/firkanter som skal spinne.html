@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Firkanter</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .firkant{
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            transition: 2s linear;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    var x = 0;
+    while(x < 100) {
+        var firkant = document.createElement("div");
+        firkant.className = "firkant";
+        firkant.style.backgroundColor = `hsla(${Math.random()*360}, 100%, 50%, 0.4)`;
+        firkant.style.left = Math.random() * innerWidth + "px";
+        firkant.style.top = Math.random() * innerHeight + "px";
+        document.body.appendChild(firkant);
+        x++;
+    }
+
+    function scramble() {
+
+        var firkanter = document.getElementsByClassName("firkant");
+        for(var firkant of firkanter) {
+
+            let r = Math.random()* 2160;
+
+            firkant.style.left = Math.random() * innerWidth + "px";
+            firkant.style.top = Math.random() * innerHeight + "px";
+            firkant.style.transform = `rotate(${r}deg)`;
+        }
+    }
+
+    setInterval(scramble, 3000);
+</script>
+
+
+</body>
+</html>
