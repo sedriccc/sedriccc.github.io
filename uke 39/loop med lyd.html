@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loop med lyd</title>
+</head>
+<body>
+
+    <script>
+
+        var ac = new AudioContext();
+
+
+        for(var x= 0; x<1000; x++) {
+
+            var osc = ac.createOscillator(); // lager en oscillator
+            osc.connect(ac.destination); // kobler til en høytaler
+            osc.frequency.value = Math.random()*1000;// hvilken tone skal spilles
+            osc.start(x/ 100); //starter lyd
+            osc.stop(x/ 100 + 0.02); // stopper lyd
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>

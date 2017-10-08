@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tegne tegne</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #canvas {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+
+        function tegnsirkel() {
+            for(let x = 1; x < 850; x+=2) {
+
+                ctx.beginPath();
+                ctx.strokeStyle = `hsl(${Math.random()*360}, 100%,50%)`;
+                ctx.arc(innerWidth/2, innerHeight/2, x, 0, Math.PI*2);
+                ctx.stroke();
+
+                ctx.closePath();
+
+            }
+        }
+
+        setInterval(tegnsirkel, 100);
+
+
+
+    </script>
+
+</body>
+</html>
