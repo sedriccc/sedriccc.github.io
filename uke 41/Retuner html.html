@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>en funksjon kan retunere html kode</title>
+</head>
+<body>
+
+    <ul id="handleliste"></ul>
+
+    <script>
+        let handleliste = document.getElementById("handleliste");
+
+
+        //funksjonen tar navnet på en vare og gir meg html kode for et liste punk
+        function lagListePunkt(vare) {
+
+            var li = `<li>${vare}</li>`;
+            return li;
+
+        }
+
+        handleliste.innerHTML += lagListePunkt("sitron");
+        handleliste.innerHTML += lagListePunkt("appelsin");
+        handleliste.innerHTML += lagListePunkt("suppe");
+
+    </script>
+
+</body>
+</html>

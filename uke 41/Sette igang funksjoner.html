@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sette i gang funksjoner </title>
+</head>
+<body>
+
+        <div id="info"></div>
+
+    <script>
+        let info = document.getElementById("info");
+
+        var teller = 0;
+
+        function klikk(evt) {
+            console.log(evt);
+            info.innerHTML = `du har kliket ${teller} ganger`;
+            teller++;
+        }
+
+        document.onclick = klikk;
+
+    </script>
+
+</body>
+</html>
