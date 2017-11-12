@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Læka </title>
+</head>
+<body>
+    <form id="skjema">
+        <input id="inpFilm" type="text" required placeholder="hvilken film vil du legge til?">
+    </form>
+
+    <button id="fjernSisteFilm">Fjern Film</button>
+    <button id="sortere">Sorter filmene alfabetisk</button>
+
+    <ul id="liste"></ul>
+
+
+    <script>
+        let sortere = document.getElementById("sortere");
+        let skjema = document.getElementById("skjema");
+        let inpFilm = document.getElementById("inpFilm");
+        let fjernSisteFilm = document.getElementById("fjernSisteFilm");
+        let liste = document.getElementById("liste");
+
+        let filmer = [];
+
+        function leggTil(evt) {
+            evt.preventDefault();
+            let film = inpFilm.value;
+            filmer.unshift(film);
+            console.log(filmer);
+            visefilmer();
+            inpFilm.value = "";
+        }
+
+        function fjerneFilm() {
+            filmer.pop();
+            visefilmer();
+
+            console.log(filmer);
+        }
+
+        function alfabetisk() {
+            filmer.sort();
+            console.log(filmer);
+            visefilmer();
+        }
+
+        function visefilmer() {
+            liste.innerHTML = "";
+            for (let listefilm of filmer) {
+                liste.innerHTML += "<li>" + listefilm + "</li>"
+            }
+        }
+
+        skjema.onsubmit= leggTil;
+        sortere.onclick = alfabetisk;
+        fjernSisteFilm.onclick = fjerneFilm;
+
+    </script>
+
+</body>
+</html>

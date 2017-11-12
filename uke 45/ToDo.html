@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+        body {
+            max-width: 600px;
+            padding: 10px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="skjema">
+        <input type="text" id="inpToDo" required placeholder="What needs to be done">
+    </form>
+
+    <section id="listeMedToDos">
+
+    </section>
+
+    <script>
+        let inpToDo = document.getElementById("inpToDo");
+        let skjema = document.getElementById("skjema");
+        let listeMedToDos = document.getElementById("listeMedToDos");
+
+
+        let todos = [
+            { task: "vaske gulvet", done: false },
+            { task: "gå ut med søppel", done: true }
+            ];
+
+            function visTodos() {
+                listeMedToDos.innerHTML = "";
+                for(let todo of todos) {
+                    listeMedToDos.innerHTML += `
+                    <div>
+                        <input type="checkbox">
+                        <label>${todo.task}</label>
+                    </div>
+                    `;
+                }
+            }
+
+            function nytodo(evt) {
+                evt.preventDefault();
+                todos.push({ task: inpToDo.value, done: false });
+                inpToDo.value = "";
+                visTodos();
+            }
+            skjema.onsubmit = nytodo;
+            visTodos();
+
+    </script>
+
+</body>
+</html>

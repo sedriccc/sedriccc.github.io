@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>feriebilder</title>
+</head>
+<body>
+
+    <button id="forrige">Forrige</button>
+    <img id="bilder">
+    <button id="neste">Neste</button>
+
+    <script>
+
+        let neste = document.getElementById("neste");
+        let forrige = document.getElementById("forrige");
+        let bilder = document.getElementById("bilder");
+        let feriebilder = ["geit.jpg","ISs.jpg","iss-807815.jpg","kim.jpg"];
+
+        let i = 0;
+        bilder.src = feriebilder[0];
+
+        neste.onclick = function () {
+            i++;
+            if(i===feriebilder.length) {
+                i=0;
+            }
+            bilder.src = feriebilder[i];
+        };
+
+        forrige.onclick = function () {
+            i--;
+
+            if(i < 0) {
+                i = 3;
+            }
+            bilder.src = feriebilder[i];
+        };
+
+        function sorterTekst(a, b) {
+            a = a.toUpperCase();
+            b = b.toUpperCase();
+            return b < a;
+        }
+        feriebilder.sort(sorterTekst);
+        console.log(feriebilder);
+
+
+
+        document.write("<br>");
+        document.write(feriebilder);
+
+
+
+
+
+    </script>
+
+</body>
+</html>

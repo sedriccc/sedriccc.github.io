@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>206</title>
+</head>
+<body>
+
+    <script>
+
+        let matvarer = ["ost", "paprika", "brød", "kaviar"];
+
+
+        matvarer.unshift("taco");
+        matvarer.pop();
+        matvarer.splice(3,1);
+
+        document.write(matvarer);
+        console.log(matvarer);
+
+        document.write("<br>");
+
+        let trær = ["lønn","hassel","bjørk","eik", "blodlønn", "furu", "gran"];
+
+        trær.splice(3,1);
+        trær.splice(2, 1,"hengebjørk");
+        trær.splice(4,2);
+        trær.splice(4, 0, "fjellbjørk", "dvergbjørk");
+        trær.sort();
+
+        document.write(trær);
+
+        document.write("<br>");
+
+
+
+
+    </script>
+
+</body>
+</html>

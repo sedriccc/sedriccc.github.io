@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spydkast array</title>
+</head>
+<body>
+
+    <form id="skjema">
+        <input type="text" id="inpLengde" required placeholder="lengde på kast">
+    </form>
+
+    <script>
+        let skjema = document.getElementById("skjema");
+        let inpLengde = document.getElementById("inpLengde");
+
+        let kastene = []; //tomt array;
+
+        function leggSammenLengder() {
+
+            let totallengde = 0;
+            for(let kast of kastene) {
+                totallengde += kast;
+            }
+            console.log("dere har kastet " + totallengde + "m");
+        }
+
+        function registrerKast(evt) {
+            evt.preventDefault();
+            let kast = Number(inpLengde.value);
+            kastene.push(kast); // unshift, legger inn foran i array, push legger til bakerst
+            inpLengde.value = "";
+            leggSammenLengder();
+
+            console.log(kastene);
+        }
+
+        skjema.onsubmit = registrerKast;
+
+    </script>
+
+</body>
+</html>
