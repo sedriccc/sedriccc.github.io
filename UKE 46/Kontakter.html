@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kontakter </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+        body{
+            max-width: 600px;
+            padding: 10px;
+            margin: auto;
+            font-size: 117%;
+        }
+        #checkbox{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="skjema">
+        <input id="inpFornavn" type="text" required placeholder="Hva heter jeg?">
+        <input id="inpEtternavn" type="text" required placeholder="Hva heter jeg til etternavn?">
+        <input id="inpTelefon" type="tel" required placeholder="hva er ditt telefonnummer?">
+        <input id="inpEpost" type="email" required placeholder="hva er din Epost?">
+        <button id="leggTilKontakt" type="submit" class="button success">Legg til ny kontakt</button>
+    </form>
+
+    <div>
+        <button id="btnSlett" class="button alert">Slett kontakt</button>
+        <button id="btnRediger" class="button">Rediger kontakt</button>
+    </div>
+
+    <div id="divKontakter"></div>
+
+
+    <script>
+        let inpFornavn = document.getElementById("inpFornavn");
+        let inpEtternavn = document.getElementById("inpEtternavn");
+        let inpTelefon = document.getElementById("inpTelefon");
+        let inpEpost = document.getElementById("inpEpost");
+        let divKontakter = document.getElementById("divKontakter");
+        let btnSlett = document.getElementById("btnSlett");
+        let btnRediger = document.getElementById("btnRediger");
+
+
+        let kontakter = [
+            {
+                fornavn: "sindre",
+                etternavn: "skogholt",
+                telefonnummer: "48351186",
+                epost: "sindrehs@hotmail.no",
+                markert: false
+
+            },
+            {
+                fornavn: "johan",
+                etternavn: "Legoland",
+                telefonnummer: "83110874",
+                epost: "johan@dansken.no",
+                markert: false
+            }
+
+        ];
+
+        function visKontaker() {
+            divKontakter.innerHTML = "";
+
+            for(let [indeks,kontakt] of kontakter.entries()) {
+                divKontakter.innerHTML += `
+                <div>
+                    <br>
+                    <input id="checkbox" type="checkbox" onchange="marker(${indeks})">
+                    <span>${kontakt.fornavn}</span>
+
+                    <span>${kontakt.etternavn}</span>
+                    <br>
+                    <span>${kontakt.telefonnummer}</span>
+                    <br>
+                    <span>${kontakt.epost}</span>
+                    <br>
+                </div>
+            `;
+            }
+        }
+
+        function nyKontakt(evt) {
+            evt.preventDefault();
+            var kontakt = {
+                fornavn: inpFornavn.value,
+                etternavn: inpEtternavn.value,
+                telefonnummer: inpTelefon.value,
+                epost: inpEpost.value,
+                markert: false,
+            };
+            kontakter.push(kontakt);
+            inpFornavn.value = "";
+            inpEtternavn.value = "";
+            inpTelefon.value = "";
+            inpEpost.value = "";
+            visKontaker();
+
+        }
+
+        function marker(i) {
+            let kontakt = kontakter[i];
+            let rad = document.querySelector(`#divKontakter > div:nth-child(${i+1})`);
+            let ch = rad.querySelector("input[type=checkbox]");
+
+            if(ch.checked) {
+                kontakt.markert = true;
+            } else {
+                kontakt.markert = false;
+            }
+            console.log(kontakter);
+        }
+
+        function slettMarkerte() {
+            let umarkerte = [];
+            for(let kontakt of kontakter) {
+
+                if(!kontakt.markert) {
+                    umarkerte.push(kontakt);
+                }
+            }
+            kontakter = umarkerte;
+            visKontaker();
+        }
+
+        function redigerKontakt(i) {
+            for (let kontakt of kontakter) {
+
+                if(kontakt.markert) {
+                    inpFornavn.value = kontakt.fornavn;
+                    inpEtternavn.value = kontakt.etternavn;
+                    inpTelefon.value = kontakt.telefonnummer;
+                    inpEpost.value = kontakt.epost;
+
+                    slettMarkerte();
+
+                }
+            }
+        }
+
+        console.log(kontakter);
+        skjema.onsubmit = nyKontakt;
+        btnSlett.onclick = slettMarkerte;
+        btnRediger.onclick = redigerKontakt;
+        visKontaker();
+        //laget av sedric P.K
+        //og Sindre H.S
+    </script>
+
+
+</body>
+</html>

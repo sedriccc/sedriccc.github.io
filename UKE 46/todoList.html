@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+        body {
+            max-width: 600px;
+            padding: 10px;
+            margin: auto;
+        }
+        #divTodos > div {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            grid-gap: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<form id="skjema">
+
+    <input id="inpTodo" type="text" placeholder="Hva må gjøres" required>
+
+</form>
+
+<div id="divTodos">
+
+</div>
+<div>
+    <button  class="button" onclick="visTodos()">Vis alle</button>
+    <button  class="button" onclick="visFerdigeTodos()">Vis ferdige</button>
+    <button  class="button" onclick="visUferdigeTodos()">Vis uferdige</button>
+    <button class="button alert" onclick="slettMarkerte()">Slett Ferdig</button>
+</div>
+
+<script>
+    var divTodos = document.getElementById("divTodos");
+    var skjema = document.getElementById("skjema");
+    var inpTodo = document.getElementById("inpTodo");
+    var todos = [
+        { beskrivelse: "Vaske gulvet", done: false },
+        { beskrivelse: "Trene", done: false },
+        { beskrivelse: "Kjøpe prim", done: true },
+        { beskrivelse: "Gjøre IT-leksen", done: true },
+        { beskrivelse: "Lade macen", done: true }
+    ];
+    function nyTodo(evt) {
+        evt.preventDefault();
+        var todo = {
+            beskrivelse: inpTodo.value,
+            done: false
+        };
+        todos.push(todo);
+        visTodos();
+        inpTodo.value = "";
+    }
+    function slett(i) {
+        todos.splice(i, 1);
+        visTodos();
+    }
+    function slettMarkerte() {
+        var umarkerte = [];
+        for(var todo of todos) {
+
+            if(!todo.done) {
+                umarkerte.push(todo);
+            }
+        }
+        todos = umarkerte;
+        visTodos();
+    }
+    function marker(i) {
+
+        var todo = todos[i];
+        var rad = document.querySelector(`#divTodos > div:nth-child(${i+1})`);
+        var cb = rad.querySelector("input[type=checkbox]");
+
+        if(cb.checked) {
+            todo.done = true;
+        } else {
+            todo.done = false;
+        }
+        visTodos();
+    }
+
+    function visTodos() {
+        divTodos.innerHTML = "";
+        for( var [indeks, todo] of todos.entries() ) {
+            var stil = "text-decoration: none";
+            var sjekket = "";
+            if(todo.done) {
+                stil = "text-decoration: line-through";
+                sjekket = "checked";
+            }
+            divTodos.innerHTML += `
+                    <div>
+                        <input type="checkbox" ${sjekket} onchange="marker(${indeks})">
+                        <span style="${stil}">${todo.beskrivelse}</span>
+                        <button onclick="slett(${indeks})" class="tiny button">X</button>
+                    </div>
+                `;
+        }
+    }
+    function visUferdigeTodos() {
+        divTodos.innerHTML = "";
+        for(var todo of todos) {
+            if(!todo.done) {
+                divTodos.innerHTML += `
+                    <div>
+                        <input type="checkbox">
+                        <span>${todo.beskrivelse}</span>
+                        <button>X</button>
+                    </div>
+                `;
+            }
+        }
+    }
+    function visFerdigeTodos() {
+        divTodos.innerHTML = "";
+        for(var todo of todos) {
+            if(todo.done) {
+                divTodos.innerHTML += `
+                    <div>
+                        <input type="checkbox">
+                        <span>${todo.beskrivelse}</span>
+                        <button>X</button>
+                    </div>
+                `;
+            }
+        }
+    }
+    skjema.onsubmit = nyTodo;
+    visTodos();
+</script>
+
+</body>
+</html>
