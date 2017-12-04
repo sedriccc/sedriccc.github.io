@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oppgave 2 del 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+       form{
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        table{
+            border-collapse: separate;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        #planlegger{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="skjema">
+        <input id="inpDato" type="text" placeholder="Dato" required>
+        <input id="inpFag" type="text" placeholder="Hvilket fag har du?" required>
+        <input id="inpHusk" type="text" placeholder="skal noe huskes?">
+        <button id="btnSubmit" type="submit">Legg til</button>
+    </form>
+
+    <div id="planlegger">
+
+        <table>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>Mandag</td>
+                    <td>Tirsdag</td>
+                    <td>Onsdag</td>
+                    <td>Torsdag</td>
+                    <td>Fredag</td>
+                </tr>
+                <tr id="uke49">
+                    <td>Uke 49</td>
+                    <td id="des4">des 4</td>
+                    <td id="des5">des 5</td>
+                    <td id="des6">des 6</td>
+                    <td id="des7">des 7</td>
+                    <td id="des8">des 8</td>
+                </tr>
+                <tr id="uke50">
+                    <td>Uke 50</td>
+                    <td id="des11">des 11</td>
+                    <td id="des12">des 12</td>
+                    <td id="des13">des 13</td>
+                    <td id="des14">des 14</td>
+                    <td id="des15">des 15</td>
+                </tr>
+                <tr id="uke51">
+                    <td>Uke 51</td>
+                    <td>des 18</td>
+                    <td>des 19</td>
+                    <td>des 20</td>
+                    <td>des 21</td>
+                    <td>des 22</td>
+                </tr>
+                <tr id="uke52">
+                    <td>Uke 52</td>
+                    <td>des 25</td>
+                    <td>des 26</td>
+                    <td>des 27</td>
+                    <td>des 28</td>
+                    <td>des 29</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+
+        let inpDato = document.getElementById("inpDato");
+        let inpFag = document.getElementById("inpFag");
+        let inpHusk = document.getElementById("inpHusk");
+        let btnSubmit = document.getElementById("btnSubmit");
+        let planlegger = document.getElementById("planlegger");
+        let skjema = document.getElementById("skjema");
+        let uke49 = document.getElementById("uke49");
+
+        let des4 = document.getElementById("des4");
+        let des5 = document.getElementById("des5");
+        let des6 = document.getElementById("des6");
+        let des7 = document.getElementById("des7");
+        let des8 = document.getElementById("des8");
+        let des11 = document.getElementById("des11");
+        let des12 = document.getElementById("des12");
+        let des13 = document.getElementById("des13");
+        let des14 = document.getElementById("des14");
+        let des15 = document.getElementById("des15");
+
+        function leggTil(evt) {
+            evt.preventDefault();
+
+            //switch seting for de forskjellige datoene i 2 uker
+            switch (inpDato.value) {
+                case "4":
+                    des4.innerHTML += `<br> <td> <p> i dag har du: ${inpFag.value} <br> husk: ${inpHusk.value}</p> </td>`;
+                    break;
+                case "5":
+                    des5.innerHTML += `<br> <td> <p> i dag har du: ${inpFag.value} <br> husk: ${inpHusk.value}</p> </td>`;
+                    break;
+                case "6":
+                    des6.innerHTML += `<br> <td> <p> i dag har du: ${inpFag.value} <br> husk: ${inpHusk.value}</p> </td>`;
+                    break;
+                case "7":
+                    des7.innerHTML += `<br> <td> <p> i dag har du: ${inpFag.value} <br> husk: ${inpHusk.value}</p> </td>`;
+                    break;
+                case "8":
+                    des8.innerHTML += `<br> <td> <p> i dag har du: ${inpFag.value} <br> husk: ${inpHusk.value}</p> </td>`;
+                    break;
+                case "11":
+                    des11.innerHTML += `<br> <td> <p> i dag har du: ${inpFag.value} <br> husk: ${inpHusk.value}</p> </td>`;
+                    break;
+                case "12":
+                    des12.innerHTML += `<br> <td> <p> i dag har du: ${inpFag.value} <br> husk: ${inpHusk.value}</p> </td>`;
+                    break;
+                case "13":
+                    des13.innerHTML += `<br> <td> <p> i dag har du: ${inpFag.value} <br> husk: ${inpHusk.value}</p> </td>`;
+                    break;
+                case "14":
+                    des14.innerHTML += `<br> <td> <p> i dag har du: ${inpFag.value} <br> husk: ${inpHusk.value}</p> </td>`;
+                    break;
+                case "15":
+                    des15.innerHTML += `<br> <td> <p> i dag har du: ${inpFag.value} <br> husk: ${inpHusk.value}</p> </td>`;
+                    break;
+                default: alert("denne datoen er ikke i vår kalender");
+            }
+        }
+        btnSubmit.onclick = leggTil;
+
+
+    </script>
+
+</body>
+</html>
